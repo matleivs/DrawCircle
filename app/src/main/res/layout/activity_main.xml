@@ -44,11 +44,11 @@
 
     <ImageView
         android:id="@+id/activity_main_imageview_circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="98dp"
-        android:paddingHorizontal="45dp"
-        android:paddingVertical="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

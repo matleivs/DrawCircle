@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">DrawCircle</string>
     <string name="draw_circle">Draw Circle!</string>
+    <string name="drawing_circle_toast">Drawing Circle</string>
+    <string name="enter_radius_toast">Enter a valid radius</string>
+    <string name="ouch_toast">Ouch!</string>
 </resources>

@@ -44,10 +44,9 @@ class MainActivity : AppCompatActivity() {
             {
                 numeric = false
             }
-//                    if (!edtRadius.text.toString().isEmpty() && edtRadius.toString().toFloat() != Float.NaN) edtRadius.text.toString().toFloat() else 123f
 
             if (numeric && radius > 0f) {
-                Toast.makeText(this@MainActivity, "Drawing Circle", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, getString(R.string.drawing_circle_toast), Toast.LENGTH_SHORT).show()
 
                 // move softkeyboard out of the screen --> so circle is visible
                 val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -55,8 +54,19 @@ class MainActivity : AppCompatActivity() {
 
                 // set style and color of circle <=> set Paint
                 val paint = Paint()
-                paint.color = Color.BLUE
-                paint.style = Paint.Style.FILL
+                if (radius % 2 == 0f) {
+                    paint.style = Paint.Style.FILL
+                }
+                else {
+                    paint.style = Paint.Style.STROKE
+                    paint.strokeWidth = 12f;
+                }
+                if(radius < 60){ paint.color = Color.BLUE }
+                else if (radius < 120) { paint.color = Color.GREEN }
+                else if (radius < 180) { paint.color = Color.YELLOW }
+                else if (radius < 240) { paint.color = Color.RED }
+                else if (radius < 300) { paint.color = Color.MAGENTA }
+                else {paint.color = Color.GRAY}
 
                 // to store the image -> bitmap object
                 val bitmap = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888)
@@ -67,8 +77,9 @@ class MainActivity : AppCompatActivity() {
 
                 // output circle on screen
                 imgCircle.setImageBitmap(bitmap)
+                if(radius > 250) { Toast.makeText(this@MainActivity, getString(R.string.ouch_toast), Toast.LENGTH_LONG).show()}
             } else {
-                Toast.makeText(this@MainActivity, "Enter a valid radius", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, getString(R.string.enter_radius_toast), Toast.LENGTH_SHORT).show()
             }
         }
 
